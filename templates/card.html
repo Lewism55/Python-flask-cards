@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome!</title>
+</head>
+<body>
+    <h1>Welcome to SPANISH CARDS</h1>
+    <p>
+        English: {{ card.question }} <br />
+        Spanish: {{ card.answer }}
+    </p>
+    <p>
+
+        <button>
+        {% if index < max_index %}
+            <a href="{{ url_for('card_view', index=index + 1) }}">
+                next card
+            </a>
+        {% else %}
+            <a href="{{ url_for('card_view', index=0) }}">
+                back to start
+            </a>
+        {% endif %}
+        </button>
+        <button>
+            <a href="{{ url_for('welcome') }}">
+                return to home page
+            </a>
+        </button>
+        <br />
+        <button>
+            <a href="{{ url_for('remove_card', index=index) }}">
+                Remove this card
+            </a>
+        </button>
+                <button>
+            <a href="{{ url_for('add_card') }}">
+                add a new card
+            </a>
+        </button>
+    </p>
+</body>
+</html>
